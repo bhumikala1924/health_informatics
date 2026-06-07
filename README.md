@@ -83,4 +83,68 @@ SMS Notifications
 | Platform             | Web-based System        |
 | Additional Tool      | SMS Notification System |
 
-# 
+# ER DIAGRAM
+                           +----------------------+
+                           |       MOTHER         |
+                           +----------------------+
+                           | PK Mother_ID         |
+                           | Name                 |
+                           | Age                  |
+                           | Address              |
+                           | Phone_Number         |
+                           | Blood_Group          |
+                           | Registration_Date    |
+                           +----------------------+
+                                   |
+              -------------------------------------------------
+              |                    |                  |       |
+             1:M                  1:M                1:M     1:M
+              |                    |                  |       |
+     +---------------+    +---------------+   +--------------+  +----------------+
+     |      ANC      |    |    DELIVERY   |   |     PNC      |  |     CHILD      |
+     +---------------+    +---------------+   +--------------+  +----------------+
+     | PK ANC_ID     |    | PK Delivery_ID|   | PK PNC_ID    |  | PK Child_ID    |
+     | FK Mother_ID  |    | FK Mother_ID  |   | FK Mother_ID |  | FK Mother_ID   |
+     | Visit_Date    |    | Delivery_Date |   | Visit_Date   |  | Name           |
+     | Weight        |    | Delivery_Type |   | Health_Status|  | Gender         |
+     | BloodPressure |    +---------------+   +--------------+  | Date_of_Birth  |
+     +---------------+                                          +----------------+
+                                                                        |
+                                                                       1:M
+                                                                        |
+                                                         +--------------------------+
+                                                         |       VACCINATION         |
+                                                         +--------------------------+
+                                                         | PK Vaccine_ID            |
+                                                         | FK Child_ID              |
+                                                         | Vaccine_Name             |
+                                                         | Date_Given               |
+                                                         | Next_Dose_Date           |
+                                                         +--------------------------+
+                                                         
+                                                         
+                                                         
+  # INSTALLATION GUIDE
+  ## Installation Guide
+
+1. Clone the repository from GitHub.
+2. Navigate to the project directory.
+3. Install the required dependencies.
+4. Configure the database.
+5. Run the Django server.
+6. Access the application through a web browser.
+
+# FUTURE SCOPE 
+Mobile Application Support
+Cloud-Based Storage
+Dashboard and Data Analytics
+Email Notifications
+Integration with HMIS
+AI-Based Risk Prediction
+
+# CONTRIBUTORS
+bhumikala chaudhary 
+samiksha thapa
+sushreeka khadka 
+susmita mahat
+
